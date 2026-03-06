@@ -32,10 +32,10 @@ body {
 
 .categorias {
     background-color: #8d99ae;
-    padding: 10px 40px;
+    padding: 15px 80px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
 }
 
 .categorias button {
@@ -44,17 +44,32 @@ body {
     color: white;
     font-size: 13px;
     cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 4px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: 0.3s ease;
 }
 
-.categorias .ativo {
+
+.categorias button:hover {
+    background-color: #0d1b2a;
+}
+
+.categorias button.ativo {
     background-color: #0d1b2a;
 }
 
 .pesquisa {
     background-color: #d6d2c4;
-    padding: 25px 40px;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pesquisa form {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .pesquisa h3 {
@@ -63,7 +78,8 @@ body {
 }
 
 .pesquisa input {
-    width: 70%;
+    width: 500px;
+    max-width: 90%;
     padding: 10px;
     border: 1px solid #999;
     border-radius: 4px;
@@ -81,15 +97,31 @@ body {
 .produtos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 60px;
+    gap: 30px;
     padding: 60px 80px;
-    text-align: center;
 }
 
 .card {
     background-color: white;
-    padding: 20px;
-    border-radius: 6px;
+    padding: 35px 25px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
 }
 
 .card-img-container {
@@ -117,24 +149,31 @@ body {
 }
 
 .card-preco {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #0d1b2a;
 }
 
 .card-botao {
     background-color: #0d1b2a;
     color: white;
     border: none;
-    padding: 8px 25px;
-    font-size: 12px;
-    border-radius: 3px;
+    padding: 10px 25px;
+    font-size: 13px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.card-botao:hover {
+    background-color: #1b263b;
+    transform: scale(1.05);
 }
 
 .footer {
     background-color: #0d1b2a;
     color: white;
-    padding: 25px 500px 20px;
+    padding: 40px 80px;
 }
 
 .footer-content {

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="/Loja Virtual/Js/produtos.js" defer></script>
-    <script src="/Loja Virtual/Js/Script.js" defer></script>
-    <link rel="stylesheet" href="/Loja Virtual/Css/style.css">
+    <script src="/Js/carrega.js" type="module" defer></script>
+    <script src="/Js/Script.js" defer></script>
+    <link rel="stylesheet" href="/Css/style.css">
     <title>Mercadinho</title>
 </head>
 <body>
@@ -15,80 +15,46 @@
     <div class="logo">Rural Orgânico</div>
 
     <nav class="menu">
-      <a href="/Loja Virtual/Html/index.html">Loja</a>
+      <a href="/Html/index.html">Loja</a>
       <a href="#">Quem Somos</a>
       <a href="#">Fale Conosco</a>
-      <a href="/Loja Virtual/Html/cadastro.html">Cadastro</a>
-      <a href="/Loja Virtual/Html/carrinho.html">Carrinho</a>
+      <a href="/Loja Virtual/Html/Cadastro">Cadastro</a>
+      <a href="/Html/carrinho.html">Carrinho</a>
     </nav>
   </header> 
+  <!--
+  usar o filter para as abas
+  
+  e fazer ir pro carrinho os produtos
+  -->
 
 
-  <div class="categorias">
-    <button class="ativo">Todos os Produtos</button>
-    <button>Arroz/Feijão</button>
-    <button>Verdura</button>
-    <button>Frutas</button>
-    <button>Hortaliça</button>
-    <button>Tempero</button>
-    <button>Farinha</button>
-    <button>Laticínios</button>
-    <button>Alimentos</button>
-    <button>Grãos</button>
-    <button>Cestas</button>
-    <button>Bolos</button>
-    <button>Sucos</button>
-    <button>Doces</button>
-    <button>Higiene/Limpeza</button>
-  </div>
+<div class="categorias">
+  <button class="ativo">Todos os Produtos</button>
+  <button>Arroz/Feijão</button>
+  <button>Verdura</button>
+  <button>Frutas</button>
+  <button>Hortaliça</button>
+  <button>Tempero</button>
+  <button>Farinha</button>
+  <button>Laticínios</button>
+  <button>Alimentos</button>
+  <button>Grãos</button>
+  <button>Cestas</button>
+  <button>Bolos</button>
+  <button>Sucos</button>
+  <button>Doces</button>
+  <button>Higiene/Limpeza</button>
+</div>
 
-
-  <section class="pesquisa">
-    <h3>Pesquisa seus Produtos:</h3>
-    <input type="text" placeholder="Digite o nome do produto">
-    <button>Buscar</button>
-  </section>
-
-  <div id="container-produtos" class="container"></div>
-
-<section class="produtos">
-
-    <div class="card">
-
-
-        <div class="card-body">
-          <img src="/Loja Virtual/Imagens/produtos/arroz_integral.jpg" alt="arroz_Integral">
-            <h3 class="card-titulo">Arroz Integral Orgânico</h3>
-            <p class="card-descricao">Cultivado com práticas sustentáveis e sem agrotóxicos.</p>
-            <p class="card-preco">R$ 12,00</p>
-            <button class="card-botao">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-body">
-          <img src="/Loja Virtual/Imagens/produtos/feijao_preto.jpg" alt="feijao_preto">
-            <h3 class="card-titulo">Feijão Preto</h3>
-            <p class="card-descricao">Rico em ferro e perfeito para o dia a dia.</p>
-            <p class="card-preco">R$ 8,50</p>
-            <button class="card-botao">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-img-container">
-            <img src="/Loja Virtual/Imagens/produtos/macaxeira.jpg" alt="Macarrão">
-        </div>
-
-        <div class="card-body">
-            <h3 class="card-titulo">Macarrão Integral</h3>
-            <p class="card-descricao">Fonte de fibras e ideal para refeições saudáveis.</p>
-            <p class="card-preco">R$ 6,90</p>
-            <button class="card-botao">Adicionar ao Carrinho</button>
-        </div>
-    </div>
-
+<section class="pesquisa">
+    <h3>Pesquise seus Produtos:</h3>
+    <form>
+        <input id="pesquisar" type="text" placeholder="Digite o nome do produto">
+    </form>
 </section>
+
+  <div id="container-produtos" class="produtos"></div>
 
 <footer class="footer">
 
