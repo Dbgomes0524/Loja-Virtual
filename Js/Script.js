@@ -10,5 +10,3 @@ botoesCategorias.forEach(botao => {
         botao.classList.add('ativo')
     })
 })
-
-const pesquisa = document.querySelector("#btnpesquisar")

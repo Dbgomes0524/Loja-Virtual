@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Loja Virtual/Css/style.css">
+    <link rel="stylesheet" href="/Css/style.css">
+    <script src="/Js/carrinho.js" type="" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -11,11 +12,11 @@
     <div class="logo">Rural Orgânico</div>
 
     <nav class="menu">
-      <a href="/Loja Virtual/Html/index.html">Loja</a>
+      <a href="index.html">Loja</a>
       <a href="#">Quem Somos</a>
       <a href="#">Fale Conosco</a>
-      <a href="/Loja Virtual/Html/cadastro.html">Cadastro</a>
-      <a href="/Loja Virtual/Html/carrinho.html">Carrinho</a>
+      <a href="/Html/cadastro.html">Cadastro</a>
+      <a href="/Html/carrinho.html">Carrinho</a>
     </nav>
     </header> 
     <body> 
@@ -26,6 +27,7 @@
 
 <section class="carrinho-container">
 
+  
     <div class="lista-produtos">
 
         <div class="item">
@@ -61,6 +63,8 @@
             <button class="btn-remover">remover</button>
         </div>
 
+      
+
     </div>
 
     <div class="resumo">
@@ -72,7 +76,7 @@
 
         <div class="resumo-box">
             <h4>VALOR TOTAL</h4>
-            <p>R$ 64,60</p>
+            <p><span id="valorcaixa">R$ 64,60</span></p>
         </div>
 
         <div class="resumo-box">
@@ -94,7 +98,7 @@
 
         <button class="btn-finalizar">Finalizar Compra</button>
         <button class="btn-continuar">Continuar Compra</button>
-
+    
     </div>
 
 </section>

@@ -1,128 +1,96 @@
-//importar arquivo LEMRAR!!!!
 import { produtos } from "./produtos.js";
+/*
+fetch("produtos.json")
 
-//pegando a div onde os cards serão inseridos
-const divCards = document.querySelector("#container-produtos")
+fetch("produtos.json")
+.then(produtos => produtos.json())
+.then(dados => {
+    console.log(dados);
+});
+*/
 
-//função responsável por renderizar os produtos na tela
+// Pegando elementos do DOM
+const divCards = document.querySelector("#container-produtos");
+const categoriasContainer = document.querySelector(".categorias");
+const pesquisar = document.querySelector("#pesquisar");
+const botoesCategorias = document.querySelectorAll('.categorias button');
+
+
+// Função responsável por renderizar os produtos na tela
 const criarCards = (listaProdutos) => {
+    // Se a lista estiver vazia ou o container não existir, para a execução
+    if (!divCards) return;
 
-    //limpa os cards atuais antes de desenhar novos
-    divCards.innerHTML = ''
+    // Limpa os cards atuais antes de desenhar novos
+    divCards.innerHTML = '';
 
-    criarMenuSecoes()
+    listaProdutos.forEach((elem) => {
+        // Criar a DIV principal do Card
+        const divCard = document.createElement('div');
+        divCard.classList.add('card');
 
-    listaProdutos.forEach((elem, i) => {
-
-        const divCard = document.createElement('div')
-        divCard.classList.add('card')
-
+        // Personalização da div (Template Literal)
         divCard.innerHTML = `
             <img src="${elem.caminhoImagem}" alt="${elem.descricao}">
             <h3 class="card-titulo">${elem.descricao}</h3>
             <p class="card-descricao">${elem.descricaoDetalhada}</p>
             <p class="card-preco">R$: ${elem.valorUnitario.toFixed(2)} / ${elem.unidade}</p>
         `
+        btnAdd.addEventListener('click', () => {
+        adicionarAoCarrinho(elem);
+        });
+        
 
-        const btnAdd = document.createElement('button')
-        btnAdd.textContent = 'Adicionar'
-        btnAdd.classList.add('card-botao')
+        // Criando BOTAO de Adicionar
+        const btnAdd = document.createElement('button');
+        btnAdd.textContent = 'Adicionar';
+        btnAdd.classList.add('card-botao');
+        
+        btnAdd.addEventListener('click', () => {
+            alert(`O produto ${elem.descricao} foi adicionado (Recurso em construção)`);
+        });
 
-        btnAdd.addEventListener('click', () =>{
-            alert('RECURSO EM CONSTRUÇÃO')
-        })
+        divCard.appendChild(btnAdd);
+        divCards.appendChild(divCard);
+    });
+};
 
-        divCard.appendChild(btnAdd)
-        divCards.appendChild(divCard)
-    })
+// Lógica de Filtro por Categoria (Usando os botões que já estão no seu HTML)
+if (categoriasContainer) {
+    categoriasContainer.addEventListener('click', (evt) => {
+        // Evita executar se o clique não for em um botão
+        if (evt.target.tagName !== "BUTTON") return;
+
+        const botaoClicado = evt.target;
+        const categoriaTexto = botaoClicado.textContent.trim();
+
+        // Gerenciar classe 'ativo' para o CSS mudar a cor
+        botoesCategorias.forEach(btn => btn.classList.remove('ativo'));
+        botaoClicado.classList.add('ativo');
+
+        // Filtra os produtos
+        if (categoriaTexto === 'Todos os Produtos') {
+            criarCards(produtos);
+        } else {
+            const produtosFiltrados = produtos.filter(produto =>
+                // Ajuste o caminho abaixo (setor.secao.nomeSecao ou secao.nomeSecao)
+                produto.setor.secao.nomeSecao.toLowerCase() === categoriaTexto.toLowerCase()
+            );
+            criarCards(produtosFiltrados);
+        }
+    });
 }
 
-const filtroSecoes = () => {
-    const mapSecoes = new Map()
-
-    listaProdutos.forEach((elem, i) => {
-        mapSecoes.set(elem.secao.idSecao, elem)
-    })
-
-    const secoes = Array.from(mapSecoes.values())
-
-    return secoes
+if (pesquisar) {
+    pesquisar.addEventListener('input', () => {
+        const buscar = pesquisar.value.toLowerCase();
+        
+        const filtro = produtos.filter(produto => {
+            return produto.descricao.toLowerCase().includes(buscar) || 
+                   produto.descricaoDetalhada.toLowerCase().includes(buscar);
+        });
+        
+        criarCards(filtro);
+    });
 }
-
-
-
-//FUNÇÃO MONTAR MENU SEÇÕES
-const criarMenuSecoes = () => {
-    const ulMenuSecoes = document.querySelector('.categorias')
-
-    ulMenuSecoes.innerHTML = ''
-
-    filtroSecoes().forEach((elem, i) => {
-        const liMenuSecoes = document.createElement('li')
-
-        const aMenuSecao = document.createElement('a')
-        aMenuSecao.setAttribute('href', '#')
-        aMenuSecao.innerHTML = elem.secao.nomeSecao
-
-        aMenuSecao.addEventListener('click', () => {
-            alert('RECURSO EM CONSTRUÇÃO')
-        })
-
-        liMenuSecoes.appendChild(aMenuSecao)
-
-        ulMenuSecoes.appendChild(liMenuSecoes)
-
-    })
-}
-
-
-
-// //Função Filtrar Seções 
-    
-
-// const categoriasContainer = document.querySelector(".categorias")
-
-// if(categoriasContainer){
-//     categoriasContainer.addEventListener('click', (evt) => {
-
-//         //evita executar o código caso o clique não seja em um botão
-//         if(evt.target.tagName !== "BUTTON") return
-
-//         /*
-//            pega o texto do botão clicado
-//            trim() remove espaços extras
-//            toLowerCase() padroniza para minúsculo
-//            para facilitar a comparação no filter
-//         */
-//         const categoria = evt.target.textContent.trim().toLowerCase()
-
-//         if(categoria === 'todos os produtos'){
-//             criarCards(produtos)
-//             return
-//         }
-
-//         /*
-//            filter cria um novo array contendo apenas
-//            os produtos da seção que foi clicada
-//         */
-//         const produtosFiltrados = produtos.filter(produto =>
-//             produto.setor.secao.nomeSecao.toLowerCase() === categoria
-//         )
-
-//         criarCards(produtosFiltrados)
-//     })
-// }
-// const pesquisar = document.querySelector("#pesquisar")
-
-// if(pesquisar){
-//     pesquisar.oninput = () => {
-//         const buscar = pesquisar.value.toLowerCase();
-//         const filtro = produtos.filter(produto =>{
-//             return produto.descricao.toLowerCase().includes(buscar)
-//         }
-//     )
-//     criarCards(filtro)
-//     }
-// }
-
-criarCards()
+criarCards(produtos);
