@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  background-color: #f8f9fa;
+}
+
+/* Header */
+.topo {
+  background-color: #0d1b2a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 14px;
+}
+.icones-topo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 20px;
+}
+.icone-carrinho {
+  position: relative;
+  cursor: pointer;
+}
+.badge {
+  background-color: #e07a5f;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+/* Título */
+.titulo-carrinho {
+  background-color: #727a89;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin: 20px auto 40px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout Principal */
+.carrinho-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+  gap: 40px;
+}
+
+/* Lista de Produtos */
+.lista-produtos {
+  width: 65%;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+.produto-info {
+  width: 40%;
+}
+.produto-info h3 {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 5px;
+}
+.produto-info p {
+  font-size: 13px;
+  color: #777;
+  font-weight: bold;
+}
+.input-qtd {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  outline: none;
+}
+.preco-item {
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+  width: 100px;
+  text-align: right;
+}
+.btn-remover {
+  background: transparent;
+  color: #dc3545;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.btn-remover:hover {
+  transform: scale(1.2);
+}
+
+/* Resumo Lateral */
+.resumo-lateral {
+  width: 32%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.resumo-caixa-externa {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: white;
+}
+.resumo-box {
+  border: 1px solid #0d1b2a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.resumo-box h4 {
+  background-color: #0d1b2a;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+}
+.box-content {
+  padding: 10px;
+  background: white;
+}
+.box-content.space-between {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}
+.box-content input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+.radios-pagamento {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.radios-pagamento label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #0d1b2a;
+  cursor: pointer;
+}
+
+/* Botões do Resumo */
+.btn-finalizar {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-finalizar:hover {
+  background-color: #218838;
+}
+.btn-continuar {
+  background-color: #727a89;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  background-color: #0d1b2a;
+  color: white;
+  padding: 40px 60px 0 60px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.footer-col h3 {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+.footer-col a,
+.footer-col p {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 8px;
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-bottom {
+  background-color: #e2dfcd;
+  color: #555;
+  text-align: center;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 15px;
+  margin: 0 -60px;
+}
